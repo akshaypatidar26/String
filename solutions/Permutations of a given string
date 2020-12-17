@@ -1,0 +1,47 @@
+
+#include <bits/stdc++.h> 
+using namespace std;
+
+/* Function to print permutations of string 
+This function takes three parameters: 
+1. String 
+2. Starting index of the string 
+3. Ending index of the string. */
+void permute(string S, int l, int r) 
+{ 
+	int i; 
+	if (l == r) 
+	{ 
+			
+		cout<<S<<" ";
+	}
+	else
+	{ 
+		for (i = l; i <= r; i++) 
+		{ 
+			swap(S[l], S[i]);
+			sort(S.begin()+l+1, S.end());
+			
+			permute(S, l+1, r); 
+			swap(S[i], S[l]); //backtrack 
+		} 
+	} 
+} 
+
+/* Driver program to test above functions */
+int main() 
+{  int t;
+   cin>>t;
+   while(t--)
+   {
+       
+    string S;
+    cin>>S;
+    int n = S.length(); 
+    sort(S.begin(), S.end());
+	permute(S, 0, n-1); 
+	cout<<"\n";
+   }
+	return 0; 
+
+}
