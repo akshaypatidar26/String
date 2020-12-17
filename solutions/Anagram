@@ -1,0 +1,49 @@
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{ int i;
+	    string a,b;
+	    cin>>a>>b;
+	    int n=256;
+	   int n1=a.length();
+	    int n2=b.length();
+	    int count[n]={0};
+	     if(n1!=n2)
+	        {
+	            cout<<"NO"<<endl;
+	            continue;
+	        }
+	            for (i = 0; i<n1; i++)
+	           { 
+                 count[a[i]]++; 
+	           }
+	           for(i=0;i<n2;i++)
+	            {
+                  count[b[i]]--; 
+                } 
+             
+            
+           bool ans=true;
+           for (i = 0; i < n; i++) 
+              if (count[i]!=0){ 
+                 ans=false;
+                 break;
+                  
+              } 
+            if(ans)
+           cout<<"YES";
+           else
+           cout<<"NO";
+      
+                 cout<<endl;
+	    
+	      }
+	      
+	
+	
+	
+	return 0;
+}
