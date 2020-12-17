@@ -1,0 +1,33 @@
+  bool isRotated(string str1, string str2)
+{
+   int m = str1.size();
+    int n = str2.size();
+    
+    if(m != n)
+        return false;
+    
+    bool flag1 = true, flag2 = true;
+    
+    for(int i = 0; i < m; i++) {
+        
+        // check for left rotation 
+        
+        if(str1[(i+2)%m] != str2[i]) {
+            flag1 = false;
+        }
+        
+        // check for right rotation 
+        
+        if(str2[(i+2)%m] != str1[i]) {
+            flag2 = false;
+        }
+        
+        
+        // if both condition fails return false
+        
+        if(!flag1 && !flag2)
+            break;
+    }
+
+    return flag1 || flag2;
+}
